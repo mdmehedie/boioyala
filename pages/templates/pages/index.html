@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid justify-content-center align-content-center m-0" style="background-image: url(/static/assets/img/bg.png); background-size: cover; background-attachment: fixed; color: white;">
+    <div class="container" align="center">
+        <h2 class="font-cursive">If you want to get used book</h2>
+        <div>
+            <button class="btn btn-outline-light m-3 px-4">
+                <i class="fa fa-city"></i> City
+            </button>
+            <button class="btn btn-light m-3">
+                <i class="fas fa-university"></i> Institute
+            </button>
+        </div>
+        <p class="font-cursive"><em>Book in popular city : Mirpur, Uttra, Gazipur, Gulsian</em></p>
+        <p class="font-cursive"><strong>--OR--</strong></p>
+
+        <div class="input-group md-form form-sm form-2 pl-0 w-50 w-sm-75">
+            <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+            <div class="input-group-append bg-success">
+                <span class="input-group-text red lighten-3 bg-success text-light" id="basic-text1">
+                    <i class="fa fa-search text-grey" aria-hidden="true"></i>
+                </span>
+            </div>
+        </div>
+        <p class="font-cursive">Books | Text Books | Study Books | Note | Magazine</p>
+        <button type="button" class="btn btn-outline-light btn-lg py-2">
+            <i class="fab fa-google-play"></i>
+            Google Play
+        </button>
+
+    </div>
+
+</div>
+
+<div class="jumbotron m-0">
+    <div class="container">
+        <p align="center">This is the bridge communication and connecting book reader of various institute. Reuse
+            and Circulation of book will not only make accessing book commercial but also help in building a
+            sustainable enviornment.</p>
+    </div>
+</div>
+<div class="bg-white" style="margin-top:50px;padding:20px 0px">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <h2 class="text-center py-2" style="border-bottom:3px solid teal">New Arraival</h2>
+        </div>
+    </div>
+    <div class="row mt-4">
+         {% for book in books %} 
+          sdfdsfdsf
+         <div class="col-md-2 mx-auto">
+            <img src="{{book.cover.url}}" class="m-0 p-0 w-100" alt="">
+             <p class="m-0 p-0 pt-1" style="font-size:14px">{{book.book.name}}</p>
+             <p class="m-0 p-0" style="font-size:14px">
+               <span style="color:teal"> Donated by </span>:{{book.user.full_name}}
+             </p>
+         </div>
+  
+         {% empty %} 
+           <div class="col-md-4 text-muted mx-auto">
+            <h3 class="text-center">Not found</h3>
+           </div>
+         {% endfor %}
+         
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-2 mx-auto">
+            <a href="/book" class="btn btn-success">View More</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" style="margin-top:50px">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <h2 class="text-center py-2" style="border-bottom:3px solid teal">
+                Highest donated People
+            </h2>
+        </div>
+    </div>
+    {% if users %}
+    <div class="row mt-4">
+        {% for profile in users %}
+         <div class="col-md-2 mx-auto">
+            <img src="{{profile.avatar.url}}" style="border-radius: 50%; height:160px;width:160px" class="m-0 p-0 w-100" alt="">
+             <p class="m-0 p-0 pt-1 text-center" style="font-size:14px">
+             <a href="{% url 'profile_detail' profile.url %}">{{profile.full_name}}</a>
+            </p>
+             <p class="m-0 p-0 text-center" style="font-size:14px">
+               <span style="color:red"> 520 </span>:
+             <a href="">  <span>Book Donated</span></a>
+             </p>
+         </div>
+     
+         {% endfor %}
+         
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-2 mx-auto">
+            <a href="" class="btn btn-success">View More</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+
+
+<div class="bg-white" style="margin-top:50px;padding:20px 0px">
+    <div class="row">
+        <div class="col-md-7 mx-auto">
+            <h2 class="text-center py-2" style="border-bottom:3px solid teal">
+                How it Work
+            </h2>
+        </div>
+    </div>
+    <div class="row mt-4">
+        
+        <div class="col-md-9 mx-auto ">
+            <img src="{% static 'assets/img/how.png' %}" class="w-100" style="overflow:hidden" alt="">
+        </div>
+         
+    </div>
+  
+</div>
+{% endblock %}
+
+

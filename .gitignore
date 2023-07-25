@@ -1,0 +1,9 @@
+venv
+db.sqlite3
+media
+
+books/__pycache__
+books/migrations/__pycache__
+
+users/__pycache__
+users/migrations/__pycache__

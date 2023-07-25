@@ -1,0 +1,143 @@
+<div class="container">
+    <div class="row">
+        <div style="height: 10vh;"></div>
+    </div>
+    <div class="row">
+        <div class="offset-xl-3 col-xl-6 offset-md-2 col-md-8 offset-sm-.5 col-sm-11.5 offset-xs-.1 col-xs-11.8 rounded border border-success shadow-lg">
+            <p align="center"><strong class="text-success">Set Your Profile</strong></p>
+            <div class="container">
+                <div class="row justify-content-center d-flex" id="view" data-url="http://127.0.0.1:8000/user/all">
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-success rounded-circle d-flex align-items-center justify-content-center h3 text-light" style="height: 74px; width: 74px;"><i class="fa fa-mobile-alt"></i></div>
+                    </div>
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-secondary" style="height: 2px; width: 74px;"></div>
+                    </div>
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center h3 text-light" style="height: 74px; width: 74px;"><i class="fa fa-city"></i></div>
+                    </div>
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-secondary" style="height: 2px; width: 74px;"></div>
+                    </div>
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center h3 text-light" style="height: 74px; width: 74px;"><i class="fa fa-university"></i></div>
+                    </div>
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-secondary" style="height: 2px; width: 74px;"></div>
+                    </div>
+                    <div class="col-auto p-0 m-0 align-self-center">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center h3 text-light" style="height: 74px; width: 74px;"><i class="fab fa-artstation"></i></div>
+                    </div>
+                </div>
+
+
+                <div class="row d-flex text-success" id="view-text">
+                    <div style="width: 134.5px;">
+                        <p align="center">
+                            <small>
+                                Verify Number &nbsp; &nbsp; &nbsp; &nbsp;
+                            </small>
+                        </p>
+                    </div>
+                    <div style="width: 134.5px;">
+                        <p align="center">
+                            <small>
+                                Set City &nbsp; &nbsp;
+                            </small>
+                        </p>
+                    </div>
+                    <div style="width: 134.5px;">
+                        <p align="center"><small>Set Institute</small></p>
+                    </div>
+                    <div style="width: 134.5px;">
+                        <p align="center">
+                            <small>
+                                &nbsp; &nbsp; &nbsp; &nbsp; Set Interest
+                            </small>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="row-cols-1 d-flex flex-column" id="row-1" data-request="http://127.0.0.1:8000/user/request" data-confirm="http://127.0.0.1:8000/user/confirm">
+                    <div class="form-group mx-3">
+                        <label for="phone-number">Mobile Number</label>
+                        <input type="number" id="phone-number" class="form-control disabled" placeholder="Enter Mobile Number" disabled="">
+                        <strong class="form-text text-muted">OTP code sent to this number</strong>
+                    </div>
+
+                    <div class="form-group mx-3">
+                        <label for="code">Enter Verification Code</label>
+                        <input type="number" id="code" class="form-control" placeholder="Enter OTP">
+                    </div>
+                    <div class="form-group d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary mr-4" disabled="">Resend OTP (36) <i class="fa fa-sync-alt"></i> </button>
+                                <button type="button" class="btn btn-success" data-state="phone">Confirm  <i class="fa fa-arrow-alt-circle-right"></i></button>
+                            </div>
+                </div>
+
+                <div class="row-cols-1 d-none flex-column" id="row-2" data-url="http://127.0.0.1:8000/user/city">
+                    <div class="form-row mx-3">
+                        <div class="form-group col-6 m-0">
+                            <label for="district">Select District</label>
+                            <select id="district" class="form-control" name="district">
+                                <option selected="" disabled="">Choose...</option>
+                            <option data-id="1" value="Comilla">Comilla</option><option data-id="2" value="Feni">Feni</option><option data-id="3" value="Brahmanbaria">Brahmanbaria</option><option data-id="4" value="Rangamati">Rangamati</option><option data-id="5" value="Noakhali">Noakhali</option><option data-id="6" value="Chandpur">Chandpur</option><option data-id="7" value="Lakshmipur">Lakshmipur</option><option data-id="8" value="Chattogram">Chattogram</option><option data-id="9" value="Coxsbazar">Coxsbazar</option><option data-id="10" value="Khagrachhari">Khagrachhari</option><option data-id="11" value="Bandarban">Bandarban</option><option data-id="12" value="Sirajganj">Sirajganj</option><option data-id="13" value="Pabna">Pabna</option><option data-id="14" value="Bogura">Bogura</option><option data-id="15" value="Rajshahi">Rajshahi</option><option data-id="16" value="Natore">Natore</option><option data-id="17" value="Joypurhat">Joypurhat</option><option data-id="18" value="Chapainawabganj">Chapainawabganj</option><option data-id="19" value="Naogaon">Naogaon</option><option data-id="20" value="Jashore">Jashore</option><option data-id="21" value="Satkhira">Satkhira</option><option data-id="22" value="Meherpur">Meherpur</option><option data-id="23" value="Narail">Narail</option><option data-id="24" value="Chuadanga">Chuadanga</option><option data-id="25" value="Kushtia">Kushtia</option><option data-id="26" value="Magura">Magura</option><option data-id="27" value="Khulna">Khulna</option><option data-id="28" value="Bagerhat">Bagerhat</option><option data-id="29" value="Jhenaidah">Jhenaidah</option><option data-id="30" value="Jhalakathi">Jhalakathi</option><option data-id="31" value="Patuakhali">Patuakhali</option><option data-id="32" value="Pirojpur">Pirojpur</option><option data-id="33" value="Barisal">Barisal</option><option data-id="34" value="Bhola">Bhola</option><option data-id="35" value="Barguna">Barguna</option><option data-id="36" value="Sylhet">Sylhet</option><option data-id="37" value="Moulvibazar">Moulvibazar</option><option data-id="38" value="Habiganj">Habiganj</option><option data-id="39" value="Sunamganj">Sunamganj</option><option data-id="40" value="Narsingdi">Narsingdi</option><option data-id="41" value="Gazipur">Gazipur</option><option data-id="42" value="Shariatpur">Shariatpur</option><option data-id="43" value="Narayanganj">Narayanganj</option><option data-id="44" value="Tangail">Tangail</option><option data-id="45" value="Kishoreganj">Kishoreganj</option><option data-id="46" value="Manikganj">Manikganj</option><option data-id="47" value="Dhaka">Dhaka</option><option data-id="48" value="Munshiganj">Munshiganj</option><option data-id="49" value="Rajbari">Rajbari</option><option data-id="50" value="Madaripur">Madaripur</option><option data-id="51" value="Gopalganj">Gopalganj</option><option data-id="52" value="Faridpur">Faridpur</option><option data-id="53" value="Panchagarh">Panchagarh</option><option data-id="54" value="Dinajpur">Dinajpur</option><option data-id="55" value="Lalmonirhat">Lalmonirhat</option><option data-id="56" value="Nilphamari">Nilphamari</option><option data-id="57" value="Gaibandha">Gaibandha</option><option data-id="58" value="Thakurgaon">Thakurgaon</option><option data-id="59" value="Rangpur">Rangpur</option><option data-id="60" value="Kurigram">Kurigram</option><option data-id="61" value="Sherpur">Sherpur</option><option data-id="62" value="Mymensingh">Mymensingh</option><option data-id="63" value="Jamalpur">Jamalpur</option><option data-id="64" value="Netrokona">Netrokona</option></select>
+                        </div>
+                        <div class="form-group col-6 m-0">
+                            <label for="upazila">Upazila</label>
+                            <select id="upazila" class="form-control" name="upazila">
+                                <option selected="" disabled="">Choose...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex justify-content-center">
+                        <button type="button" class="btn btn-success mt-4">Next <i class="fa fa-arrow-alt-circle-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="row-cols-1 d-none flex-column" id="row-3" data-url="http://127.0.0.1:8000/user/institute">
+                    <div class="form-row mx-3">
+                        <div class="form-group w-100">
+                            <label for="institute-select">Select Your Institute</label>
+                            <select id="institute-select" class="form-control">
+                                <option selected="" disabled="">Choose...</option>
+                                <option data-id="1">Chandpur Polyetchic institute</option><option data-id="2">Borishal Polyetchic institute</option>                                    <option>Other</option>
+                            </select>
+                            <strong class="form-text text-muted">Select "Other" if not
+                                here!</strong>
+                        </div>
+                    </div>
+
+                    <div class="form-group d-none mx-3">
+                        <label for="institute-name">Enter Your Institute Name (Full form)</label>
+                        <input type="text" id="institute-name" class="form-control" placeholder="Enter Your Institute Name ">
+                    </div>
+
+                    <div class="form-group d-flex justify-content-center" id="buttonForm">
+                        <button type="button" class="btn btn-success">Next <i class="fa fa-arrow-alt-circle-right"></i></button>
+                    </div>
+                </div>
+
+
+                <div class="row-cols-1 d-none flex-column" id="row-4" data-url="http://127.0.0.1:8000/user/interest">
+                    <div class="form-row mx-3">
+                        <div class="form-group w-100">
+                            <label for="interest">Select Your Interested Topic</label>
+                            <select id="interest" class="form-control" name="interest">
+                                <option selected="" disabled="">Choose...</option>
+                                <option data-id="1">Games</option><option data-id="2">Poems</option><option data-id="3">Story</option>                                </select>
+                            <strong class="form-text text-muted">You must select a option</strong>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-center" id="buttonForm">
+                        <button type="button" class="btn btn-primary"><i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

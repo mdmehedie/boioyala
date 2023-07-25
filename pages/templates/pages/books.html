@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %} Book list{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="row" style="margin-top:100px">
+    <div class="col-xl-3 col-md-3 col-sm-4 col-12">
+        <div class="row row-cols-sm-1 row-cols-3 mt-2 pl-3">
+            <div class="col">
+                <button class="btn btn-secondary btn-block">Check New Arrival</button>
+                <button class="btn btn-secondary btn-block">Popular Books</button>
+            </div>
+            <div class="col">
+                <h5 class="font-cursive mt-5">Search By City or Institute</h5>
+                <div class="form-group">
+                    <input class="form-control mt-3" placeholder="Enter City">
+                    <input class="form-control my-3" placeholder="Enter Institute">
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="font-cursive mt-5">Interest in</h5>
+                <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitchGames" name="Games">
+                            <label class="custom-control-label" for="customSwitch1Games">Games</label>
+                        </div><div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitchPoems" name="Poems">
+                            <label class="custom-control-label" for="customSwitch1Poems">Poems</label>
+                        </div><div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitchStory" name="Story">
+                            <label class="custom-control-label" for="customSwitch1Story">Story</label>
+                        </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 col-md-8 col-sm-8 col-12">
+        <div class="d-flex">
+            <span class="h3 mr-auto ml-5">Popular Book</span>
+            <a href="/dashboard" class="btn btn-success ml-auto mr-5">Post Now</a>
+        </div>
+   
+        {% for obj in books %}
+    
+            <div class="row bg-white m-4 p-2">
+                <div class="col-xl-2 col-md-3 col-sm-6 col-6 order-0 d-flex justify-content-center">
+                    <img class="m-2" height="170" width="120" src="{{obj.book.cover.url}}">
+                </div>
+
+                <div class="text-md-left text-center text-sm-center col-xl-7 col-md-6 col-sm-12 col-12 order-xl-1 order-md-1 order-sm-2 order-2">
+                    <h5 class="m-0 mt-2"><a href="{% url 'book_detail' obj.slug %}">{{obj.book.name}}</a></h5>
+                    <p class="m-0"><small>{{obj.book.author}}</small></p>
+
+                    <p class="m-0"><small>City : {{obj.book.upazila}}, {{obj.book.district}}
+                     
+                    </small></p>
+  <p class="m-0"><small>Posted On : {{obj.created_at|date}}</small></p>
+                    <p class="m-0">
+                        Posted By:
+                        <a href="">
+                            <img class="border border-success rounded-circle" src="{{obj.book.user.avatar.url}}" height="30" width="30">
+                            {{obj.book.user.full_name}}
+                        </a>
+                    </p>
+                       {% if obj.book_position ==  'Posted' %}              
+                        <a href="{% url 'request_for_book' obj.slug %}" class="btn btn-sm btn-success my-2">Request Now</a>
+                       {% elif obj.book_position ==  'Requested'  %}
+                       <a  class="btn btn-sm btn-success my-2 disabled">Pending Request</a>
+                        {% else %}
+                        <a  class="btn btn-sm btn-success my-2 disabled">Unavailable</a>
+                       {% endif %}
+                </div>
+
+                <div class="col-xl-2 col-md-3 col-sm-6 col-6 order-xl-2 order-md-2 order-sm-1 order-1">
+                    <a href="" class="text-decoration-none">
+                    <div class="m-2 border border-success rounded d-flex align-items-center flex-column" style="width: 130px;">
+                        <h5 class="text-center bg-success text-light w-100 m-0">Donated By</h5>
+                        <img class="rounded-circle m-1" src="{{obj.book.user.avatar.url}}" height="80" width="80">
+                        <p class="text-center m-0 text-success">{{obj.book.user.full_name}}</p>
+                        <p class="m-0 text-center  text-success">
+                            <small>{{obj.book.post_count}} Book Donated</small></p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+    
+        {% empty %} 
+             <p class="text-center text-muted">
+                Not found
+             </p>
+        {% endfor %}
+
+
+
+        
+
+
+            
+
+
+
+        
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,295 @@
+{% extends 'base.html' %} {% block title %} Book details{% endblock %} {% load
+static %} {% block content %}
+<div class="container">
+  <div class="row" style="margin-top: 100px">
+    <div
+      class="order-0 col-xl-3 col-md-3 col-sm-6 col-6 d-flex justify-content-center bg-white"
+    >
+      <img
+        class="rounded m-2 p-2 border"
+        src="http://127.0.0.1:8000/storage/book_cover/face-elon-musk-1688576183.png"
+        height="180"
+        width="130"
+      />
+    </div>
+    <div
+      class="order-sm-2 order-2 order-md-1 col-xl-6 col-md-6 col-sm-12 col-12"
+    >
+      <h4 class="font-cursive">Face</h4>
+
+      <p class="m-0 border-top border-bottom border-success">
+        <small>Author : Elon Musk</small><br />
+        <small>Categories : Story</small>
+      </p>
+
+      <div class="row">
+        <div class="col-7">
+          <small>
+            <p class="m-0">Posted Time : 06-Jul 2023</p>
+            <p class="m-0">City : Bakerganj,Barisal</p>
+            <p class="m-0">Location :</p>
+            <p class="m-0">Total Exchange : 0</p>
+            <p class="m-0 text-success">
+              <span class="fa fa-check-circle-o"></span> Available
+            </p>
+          </small>
+          <a
+            href="http://127.0.0.1:8000/request/send?posted_id=38"
+            class="btn btn-success btn-sm my-2"
+            >Request Now</a
+          >
+        </div>
+        <div class="col-5 d-flex justify-content-end">
+          <a href="#" class="text-decoration-none">
+            <div
+              class="border-secondary border rounded mr-3 my-2 text-secondary"
+            >
+              <p class="w-100 border-bottom border-secondary text-center mb-1">
+                <small>Posted By</small>
+              </p>
+              <img
+                src="http://127.0.0.1:8000/storage/user/avatar.png"
+                height="60"
+                width="60"
+                class="rounded-circle overflow-hidden mx-3"
+              />
+              <p class="m-0 text-center"><small>Noman hasan</small></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-white order-sm-1 order-1 order-md-2 col-xl-3 col-md-3 col-sm-6 col-6 d-flex align-items-center justify-content-center"
+    >
+      <a href="#" class="text-decoration-none">
+        <div
+          class="m-2 border border-success rounded d-flex align-items-center flex-column"
+          style="width: 130px"
+        >
+          <h5 class="text-center bg-success text-light w-100 m-0">
+            Donated By
+          </h5>
+          <img
+            class="rounded-circle m-1"
+            src="http://127.0.0.1:8000/storage/user/avatar.png"
+            height="80"
+            width="80"
+          />
+          <p class="text-center m-0 text-success">Noman hasan</p>
+          <p class="m-0 text-center text-success">
+            <small>5 book donated</small>
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div
+      class="offset-xl-3 offset-md-3 offset-sm-0 offset-0 col-xl-6 col-md-6 col-sm-12 col-12 bg-white"
+    >
+      <h5 class="text-center text-secondary">Related Books </h5>
+      <hr class="w-50 my-1" />
+     
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-3 mx-auto">
+        <div class="d-flex flex-column align-items-center">
+            <img src="http://127.0.0.1:8000/storage/book_cover/the-world-elon-musk-1688381785.png" height="250" width="200">
+            <p class="m-0 font-cursive" align="justify">The World</p>
+            <p class="m-0 text-success" align="justify"><small>Donated by: Mehedi Hasan</small>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-3 mx-auto">
+        <div class="d-flex flex-column align-items-center">
+            <img src="http://127.0.0.1:8000/storage/book_cover/the-world-elon-musk-1688381785.png" height="250" width="200">
+            <p class="m-0 font-cursive" align="justify">The World</p>
+            <p class="m-0 text-success" align="justify"><small>Donated by: Mehedi Hasan</small>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-3 mx-auto">
+        <div class="d-flex flex-column align-items-center">
+            <img src="http://127.0.0.1:8000/storage/book_cover/the-world-elon-musk-1688381785.png" height="250" width="200">
+            <p class="m-0 font-cursive" align="justify">The World</p>
+            <p class="m-0 text-success" align="justify"><small>Donated by: Mehedi Hasan</small>
+            </p>
+        </div>
+    </div>
+  </div>
+
+
+
+</div>
+<div class="container mt-5 bg-white">
+    <div class="row row-cols-1">
+        <div class="col-12 mt-4 mb-2 mx-3">
+            <h5 class="font-cursive"> Book Specification and Summary </h5>
+        </div>
+
+        <div class="col">
+            <ul class="nav nav-tabs">
+                <li class="nav-item ml-3">
+                    <a class="nav-link active" id="summaryID" href="#" data-toggle="collapse" data-target="#summary" aria-expanded="true" aria-controls="summary">Summary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="spaceID" data-toggle="collapse" data-target="#space" aria-expanded="false" aria-controls="space">Specification</a>
+                </li>
+            </ul>
+
+            <div class="collapse show" id="summary">
+                <div class="row m-3">
+                    <div class="col-12 border">Book Description</div>
+                    <div class="col-12 border mr-5 py-2">
+                        <small>sdfdsf</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse" id="space">
+
+                <table class="table table-bordered m-3 pr-5">
+                    <tbody>
+                    <tr>
+                        <th scope="row" class="p-0 px-3 w-25">Title</th>
+                        <td class="p-1 px-3">Face</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="p-0 px-3">Author</th>
+                        <td class="p-1 px-3">Elon Musk</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="p-0 px-3">Categories</th>
+                        <td class="p-1 px-3">Story</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="p-0 px-3">Donation Date</th>
+                                                    <td class="p-1 px-3">05-Jul 2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="p-0 px-3">Total Exchange</th>
+                        <td class="p-1 px-3">0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-xl-7 col-md-7 col-sm-12 col-12  mx-3">
+            <h5 class="font-cursive">Rating and Reviews</h5>
+            <div class="border my-2">
+                <div class="form-group d-flex">
+                    <style>
+                        textarea:focus {
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                            border: 0px;
+                            outline: transparent;
+                        }
+                    </style>
+                    <textarea id="review_txt" class="form-control mx-2 mt-2" placeholder="Please write your Review and Rating" style=" border: 0px;"></textarea>
+
+                </div>
+                <hr width="95%">
+                <div class="d-flex mx-3 mb-2" id="rating" style="color:#e0a800;" data-value="0">
+                    <span class="fa fa-star-o align-self-center mx-1" data-value="1"></span>
+                    <span class="fa fa-star-o align-self-center  mx-1" data-value="2"></span>
+                    <span class="fa fa-star-o align-self-center  mx-1" data-value="3"></span>
+                    <span class="fa fa-star-o align-self-center mx-1" data-value="4"></span>
+                    <span class="fa fa-star-o align-self-center mx-1" data-value="5"></span>
+                    <button role="button" type="button" class="btn btn-success btn-sm ml-auto align-self-center">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-xl-4 col-md-4 col-sm-12 col-12">
+            <div class="d-flex flex-row mt-2">
+                <h2 class="mt-0">0</h2>
+                <div style="font-size: 12px; margin-top: 4px; margin-left: 8px;">
+                    <p class="m-0">Total 0 Review and Rating</p>
+                    <div style="color: #e0a800;">
+
+                                                                                            <span class="fa fa-star-o align-self-center  mx-1"></span>
+                                                                                                                            <span class="fa fa-star-o align-self-center  mx-1"></span>
+                                                                                                                            <span class="fa fa-star-o align-self-center  mx-1"></span>
+                                                                                                                            <span class="fa fa-star-o align-self-center  mx-1"></span>
+                                                                                                                            <span class="fa fa-star-o align-self-center  mx-1"></span>
+                                                                                </div>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex my-1" style="font-size: 10px;">
+                    <div class="mr-auto my-0 align-self-center" style="color: #e0a800;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="mr-1 my-0 align-self-center">[0]</div>
+                    <div class="progress mr-0 my-0 align-self-center rounded-0" style=" height: 7px; width: 150px;">
+                        <div class="progress-bar" style="width: 0%; background-color: #e0a800;"></div>
+                    </div>
+                </div>
+                <div class="d-flex  my-1" style="font-size: 10px;">
+                    <div class="mr-auto my-0 align-self-center" style="color: #e0a800;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="mr-1 my-0 align-self-center">[0]</div>
+                    <div class="progress mr-0 my-0 align-self-center rounded-0" style=" height: 7px; width: 150px;">
+                        <div class="progress-bar" style="width: 0%; background-color: #e0a800;"></div>
+                    </div>
+                </div>
+                <div class="d-flex  my-1" style="font-size: 10px;">
+                    <div class="mr-auto my-0 align-self-center" style="color: #e0a800;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="mr-1 my-0 align-self-center">[0]</div>
+                    <div class="progress mr-0 my-0 align-self-center rounded-0" style=" height: 7px; width: 150px;">
+                        <div class="progress-bar" style="width: 0%; background-color: #e0a800;"></div>
+                    </div>
+                </div>
+                <div class="d-flex  my-1" style="font-size: 10px;">
+                    <div class="mr-auto my-0 align-self-center" style="color: #e0a800;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="mr-1 my-0 align-self-center">[0]</div>
+                    <div class="progress mr-0 my-0 align-self-center rounded-0" style=" height: 7px; width: 150px;">
+                        <div class="progress-bar" style="width: 0%; background-color: #e0a800;"></div>
+                    </div>
+                </div>
+                <div class="d-flex  my-1" style="font-size: 10px;">
+                    <div class="mr-auto my-0 align-self-center" style="color: #e0a800;">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="mr-1 my-0 align-self-center">[0]</div>
+                    <div class="progress mr-0 my-0 align-self-center rounded-0" style=" height: 7px; width: 150px;">
+                        <div class="progress-bar" style="width: 0%; background-color: #e0a800;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr class="mt-5">
+    <div id="posted-review">
+                </div>
+</div>
+{% endblock %}

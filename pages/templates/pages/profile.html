@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Book list{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row" style="margin-top:100px">
+        <div class="col-xl-3  col-md-4 col-sm-12 col-12 pt-3">
+            <div class="col">
+                <button class="btn btn-secondary btn-block">Order By Highest Donated</button>
+            </div>
+            <div class="col">
+                <h5 class="font-cursive mt-5">Search donor in your City or Institute</h5>
+                <div class="form-group">
+                    <input class="form-control mt-3" placeholder="Enter City">
+                    <input class="form-control my-3" placeholder="Enter Institute">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9  col-md-8 col-sm-12 col-12 bg-white pt-3">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="d-flex">
+                        <span class="h3 mr-auto ml-5">Popular Donar</span>
+                        <div class="ml-auto form-inline">
+                            <input type="search" class="form-control ml-auto mr-2" placeholder="Enter Donor Name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around my-5">
+                {% for obj in users %}
+                 <div class="col-auto d-flex justify-content-center">
+                        <a href="{% url 'profile_detail' obj.url %}" class="text-secondary">
+                            <div class="d-flex align-items-center flex-column justify-content-center">
+                                <img class="rounded-circle border border-danger" src="{{obj.avatar.url}}" height="80" width="80">
+                                <h6 class="text-center">
+                                    {{obj.full_name}}
+                                    <br>
+                                    <small></small>
+                                    <br>
+                                    <span class="text-danger">576</span>
+                                    <small>book donated</small>
+                                </h6>
+                            </div>
+                        </a>
+                    </div>
+                    {% empty %} 
+                      <h2 class="text-muted">
+                         Not found
+                      </h2>
+                    {% endfor %}
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
