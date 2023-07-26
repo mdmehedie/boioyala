@@ -3,6 +3,7 @@ from django.views import View
 from .models import User ,Institute,Interest
 import random 
 from django.http import JsonResponse
+from django.contrib.auth import logout,authenticate,login
 
 class SetProfileView(View):
     def post(self,request):
@@ -57,3 +58,44 @@ class SetProfileView(View):
             user.interest=obj 
             user.save()
             return JsonResponse({"msg":"success","data":"valid"})
+
+
+
+class ProfileUpdateView(View):
+    def post(self,request):
+        user=request.user 
+        action=request.POST.get('action')
+        if action=="about_me":
+            user.name=request.POST.get("name")
+            user.occupation=request.POST.get("occupation")
+            user.gender=request.POST.get("gender")
+            user.district=request.POST.get("district")
+            user.upazila=request.POST.get("upazila")
+            user.city=str(request.POST.get("upazila"))+", " +str(request.POST.get("district"))
+            user.address=request.POST.get("address") 
+            user.save()
+        elif action=="interest":
+            interest=Interest.objects.get(id=request.POST.get("interest"))
+            user.interest=interest
+            user.save() 
+
+        elif action=="password_change":
+            old_password=request.POST.get("old_password")
+            new_password=request.POST.get("new_password")
+            confirm_password=request.POST.get("confirm_password")
+            user=authenticate(email=user.email,password=old_password)
+            error=""
+            if not user:
+                error="Incorrect password"
+            elif new_password!=confirm_password:
+                error="Doesn't match confirm password"
+            
+            if not error:
+                error=""
+                user.set_password(new_password)
+                user.save()
+                login(request,user)
+                return JsonResponse({"msg":"change_password","error":""})
+            return JsonResponse({"msg":"change_password","error":error})
+
+        return JsonResponse({"data":"updated","msg":action})

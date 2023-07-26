@@ -116,7 +116,7 @@ class ProfileView(View):
         }
         return render(request,"pages/profile.html",context)
 
-
+ 
 def request_for_book(request,slug):
     if request.user.is_authenticated:
         try:
@@ -127,7 +127,7 @@ def request_for_book(request,slug):
         post.book_position="Requested"
         post.save()
         return redirect("books")
-    return redirect("login")
+    return redirect("/?return_url=/books")
 
 
 

@@ -48,6 +48,8 @@ class UserChangeForm(forms.ModelForm):
                 "phone",
                 "address",
                 "city",
+                'district',
+                'upazila',
                 "institute",
                 "interest",
                 "occupation",
@@ -72,7 +74,9 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('email','account_type',"full_name",
                        "avatar","phone",
-                "address","city","institute","interest",
+                "address","city",
+                 'district',
+                'upazila',"institute","interest",
                 "occupation","gender","total_donation",
                 "description","otp",)}),
 
@@ -90,6 +94,8 @@ class UserAdmin(BaseUserAdmin):
                 "phone",
                 "address",
                 "city",
+                 'district',
+                'upazila',
                 "institute",
                 "interest",
                 "occupation",

@@ -27,7 +27,7 @@ class User(AbstractBaseUser):
     avatar=models.ImageField(upload_to="media/profile",default="media/default/profile_avatar.png")
     phone=models.CharField(max_length=255,blank=True,null=True)
     phone_verified_at=models.DateTimeField(auto_now=True)
-    address=models.CharField(max_length=255)
+    address=models.CharField(max_length=1000)
     city=models.CharField(max_length=255)
     upazila=models.CharField(max_length=255) 
     district=models.CharField(max_length=255)
@@ -41,7 +41,7 @@ class User(AbstractBaseUser):
     ),blank=True,null=True)
     total_donation=models.PositiveBigIntegerField(default=0)
     description=models.TextField(default="bio...")
-     
+
     account_type =models.CharField(max_length=1,choices=(
         ("1","Administrator"),
         ("2","Donar"),

@@ -394,25 +394,20 @@ static %} {% block content %}
         class="row-cols-1 bg-white p-3"
         style="box-shadow: #ccc 2px 8px 10px"
       >
-        <form
-          class="form-group"
-          method="post"
-          action="http://127.0.0.1:8001/profile/update"
-        >
-          <input
-            type="hidden"
-            name="_token"
-            value="uqsDTyMPDtAOej9bMuZUkxDr5dCJXdAWQU0WdFJV"
-          />
-          <input type="hidden" hidden value="about" name="action" />
+      <div class="row">
+        <div class="col-md-12">
+             <p class="about_me_msg" style="color:green"></p>
+        </div>
+      </div>
+        <form id="aboutMeForm" class="form-group" method="post" action="">
+          {% csrf_token %}
 
           <label>Name</label>
           <input
             type="text"
             class="form-control"
             name="name"
-            value=" Noman hasan "
-            autofocus
+            value="{{request.user.full_name}}"
           />
 
           <br />
@@ -422,8 +417,8 @@ static %} {% block content %}
             class="form-control"
             name="occupation"
             placeholder="eg. Student/Employee/Entreprenur"
-            value="  "
-            autofocus
+            value="{{request.user.occupation}}"
+        
           />
 
           <br />
@@ -432,30 +427,172 @@ static %} {% block content %}
             type="email"
             class="form-control"
             name="email"
-            value="noman@gmail.com"
+            value="{{request.user.email}}"
             disabled
           />
 
           <br />
           <label>Gender</label>
           <select name="gender" class="custom-select mb-2">
-            <option selected disabled></option>
+            {% if request.user.gender == 'Male' %}
+            <option disabled>------------</option>
+            
+            <option selected>Male</option>
+            <option>Female</option>
+            {% elif request.user.gender == 'Female' %}
+            <option disabled>------------</option>
+            
+            <option >Male</option>
+            <option selected>Female</option>
+            {% else %}
+            <option selected disabled>------------</option>
+            
             <option>Male</option>
             <option>Female</option>
+            {% endif %}
+            
           </select>
 
           <br />
           <br />
           <label>District</label>
-          <select name="district" id="district" class="custom-select mb-2">
-            <option selected>Barisal</option>
-          </select>
+          <select name="district"  id="district" class="custom-select district" required>
+            <option selected value="" disabled>----------------</option>    
+               
+            <option value="Comilla">Comilla</option>
+         
+            <option value="Feni">Feni</option>
+         
+            <option value="Brahmanbaria">Brahmanbaria</option>
+         
+            <option value="Rangamati">Rangamati</option>
+         
+            <option value="Noakhali">Noakhali</option>
+         
+            <option value="Chandpur">Chandpur</option>
+         
+            <option value="Lakshmipur">Lakshmipur</option>
+         
+            <option value="Chattogram">Chattogram</option>
+         
+            <option value="Coxsbazar">Coxsbazar</option>
+         
+            <option value="Khagrachhari">Khagrachhari</option>
+         
+            <option value="Bandarban">Bandarban</option>
+         
+            <option value="Sirajganj">Sirajganj</option>
+         
+            <option value="Pabna">Pabna</option>
+         
+            <option value="Bogura">Bogura</option>
+         
+            <option value="Rajshahi">Rajshahi</option>
+         
+            <option value="Natore">Natore</option>
+         
+            <option value="Joypurhat">Joypurhat</option>
+         
+            <option value="Chapainawabganj">Chapainawabganj</option>
+         
+            <option value="Naogaon">Naogaon</option>
+         
+            <option value="Jashore">Jashore</option>
+         
+            <option value="Satkhira">Satkhira</option>
+         
+            <option value="Meherpur">Meherpur</option>
+         
+            <option value="Narail">Narail</option>
+         
+            <option value="Chuadanga">Chuadanga</option>
+         
+            <option value="Kushtia">Kushtia</option>
+         
+            <option value="Magura">Magura</option>
+         
+            <option value="Khulna">Khulna</option>
+         
+            <option value="Bagerhat">Bagerhat</option>
+         
+            <option value="Jhenaidah">Jhenaidah</option>
+         
+            <option value="Jhalakathi">Jhalakathi</option>
+         
+            <option value="Patuakhali">Patuakhali</option>
+         
+            <option value="Pirojpur">Pirojpur</option>
+         
+            <option value="Barisal">Barisal</option>
+         
+            <option value="Bhola">Bhola</option>
+         
+            <option value="Barguna">Barguna</option>
+         
+            <option value="Sylhet">Sylhet</option>
+         
+            <option value="Moulvibazar">Moulvibazar</option>
+         
+            <option value="Habiganj">Habiganj</option>
+         
+            <option value="Sunamganj">Sunamganj</option>
+         
+            <option value="Narsingdi">Narsingdi</option>
+         
+            <option value="Gazipur">Gazipur</option>
+         
+            <option value="Shariatpur">Shariatpur</option>
+         
+            <option value="Narayanganj">Narayanganj</option>
+         
+            <option value="Tangail">Tangail</option>
+         
+            <option value="Kishoreganj">Kishoreganj</option>
+         
+            <option value="Manikganj">Manikganj</option>
+         
+            <option value="Dhaka">Dhaka</option>
+         
+            <option value="Munshiganj">Munshiganj</option>
+         
+            <option value="Rajbari">Rajbari</option>
+         
+            <option value="Madaripur">Madaripur</option>
+         
+            <option value="Gopalganj">Gopalganj</option>
+         
+            <option value="Faridpur">Faridpur</option>
+         
+            <option value="Panchagarh">Panchagarh</option>
+         
+            <option value="Dinajpur">Dinajpur</option>
+         
+            <option value="Lalmonirhat">Lalmonirhat</option>
+         
+            <option value="Nilphamari">Nilphamari</option>
+         
+            <option value="Gaibandha">Gaibandha</option>
+         
+            <option value="Thakurgaon">Thakurgaon</option>
+         
+            <option value="Rangpur">Rangpur</option>
+         
+            <option value="Kurigram">Kurigram</option>
+         
+            <option value="Sherpur">Sherpur</option>
+         
+            <option value="Mymensingh">Mymensingh</option>
+         
+            <option value="Jamalpur">Jamalpur</option>
+         
+            <option value="Netrokona">Netrokona</option>
+         </select>
 
           <br />
           <br />
           <label>Upazila</label>
-          <select name="upazila" id="upazila" class="custom-select mb-2">
-            <option selected>Bakerganj</option>
+          <select name="upazila" id="upazila" class="custom-select mb-2 upazila">
+            <option selected disabled>-----------------</option>
           </select>
 
           <br />
@@ -465,30 +602,23 @@ static %} {% block content %}
             type="text"
             class="form-control"
             name="address"
-            value="  "
-            autofocus
+            value="{{request.user.address}}"
+         
           />
 
           <br />
+          <div class="row">
+            <div class="col-md-12">
+                 <p class="about_me_msg" style="color:green"></p>
+            </div>
+          </div>
           <button type="submit" class="btn btn-success my-1">Save</button>
         </form>
       </div>
     </div>
 
     <div class="col-xl-6 col-md-6 col-12 mt-2">
-      <!--<div class="alert bg-white rounded-0 px-3 py-2.5"
-                     style="border-top: 4px #4ca746 solid; box-shadow: #CCC 2px 8px 10px;">
-                    <h5>Phone Number</h5>
-                </div>
-                <div class="row-cols-1 bg-white p-3" style="box-shadow: #CCC 2px 8px 10px;">
-                    <form class="form-group">
-                        <label>Phone Number</label>
-                        <input type="number" class="form-control" name="phone">
-                        <br>
-                        <button class="btn btn-success my-1">Save</button>
-                    </form>
-                </div>-->
-
+  
       <div
         class="alert bg-white rounded-0 px-3 py-2.5"
         style="border-top: 4px #4ca746 solid; box-shadow: #ccc 2px 8px 10px"
@@ -500,25 +630,30 @@ static %} {% block content %}
         style="box-shadow: #ccc 2px 8px 10px"
       >
         <form
+          id="interestForm"
           class="form-group"
           method="post"
-          action="http://127.0.0.1:8001/profile/update"
+          action=""
         >
-          <input
-            type="hidden"
-            name="_token"
-            value="uqsDTyMPDtAOej9bMuZUkxDr5dCJXdAWQU0WdFJV"
-          />
-          <input type="hidden" hidden value="interest" name="action" />
-
+        
           <label>Interests</label>
           <select name="interest" class="custom-select mb-2">
-            <option selected>Poems</option>
-            <option>Games</option>
-            <option>Poems</option>
-            <option>Story</option>
+            <option value="" selected>------------</option>
+            {% for obj in interests %}
+            {% if request.user.interest == obj %}
+            <option value="{{obj.id}}" selected>{{obj.name}}</option>
+            {%else %}
+             <option value="{{obj.id}}">{{obj.name}}</option>
+             {% endif %}
+            {% endfor %}
+           
           </select>
           <br />
+          <div class="row">
+            <div class="col-md-12">
+                 <p class="interest_msg" style="color:green"></p>
+            </div>
+          </div>
           <button class="btn btn-success my-1">Save</button>
         </form>
       </div>
@@ -532,17 +667,15 @@ static %} {% block content %}
         class="row-cols-1 bg-white p-3"
         style="box-shadow: #ccc 2px 8px 10px"
       >
+        
         <form
+        id="changePasswordForm"
           class="form-group"
           method="post"
-          action="http://127.0.0.1:8001/profile/update"
+          accept=""
+          action=""
         >
-          <input
-            type="hidden"
-            name="_token"
-            value="uqsDTyMPDtAOej9bMuZUkxDr5dCJXdAWQU0WdFJV"
-          />
-          <input type="hidden" hidden value="password" name="action" />
+         
 
           <label>Old Password</label>
           <input
@@ -550,6 +683,7 @@ static %} {% block content %}
             class="form-control"
             name="old_password"
             placeholder="Enter Old Password"
+            required
           />
           <label>New Password</label>
           <input
@@ -557,6 +691,7 @@ static %} {% block content %}
             class="form-control"
             name="new_password"
             placeholder="Enter New Password"
+            required
           />
           <label>Confirm Password</label>
           <input
@@ -564,9 +699,11 @@ static %} {% block content %}
             class="form-control"
             name="confirm_password"
             placeholder="Retype Password"
+            required
           />
 
           <br />
+          <p class="errorPassMsg"></p>
           <button type="submit" class="btn btn-success my-1">Save</button>
         </form>
       </div>
@@ -5218,5 +5355,107 @@ static %} {% block content %}
       }
   }
 </script>
+
+
+
+<script>
+     $("#aboutMeForm").on("submit",function(e){
+        e.preventDefault()
+        $(".about_me_msg").html("loading...")
+        let data={
+           name:$("input[name='name']").val(),
+            occupation:$("input[name='occupation']").val(),
+            gender:$("select[name='gender']").val(),
+            district:$("select[name='district']").val(),
+            upazila:$("select[name='upazila']").val(),
+            address:$("input[name='address']").val(),
+            csrfmiddlewaretoken:$("input[name='csrfmiddlewaretoken']").val(),
+            action:"about_me",
+           
+
+        }
+        $.ajax({
+            url:"{% url 'update_profile' %}",
+            method:"POST",
+            data:data ,
+            success:function(res){
+                console.log(res)
+                if(res.msg=="about_me"){
+                   $(".about_me_msg").html("Your Information Updated successfully")
+                }
+            }
+        })
+     })
+
+</script>
+
+<script>
+     $("#interestForm").on("submit",function(e){
+        e.preventDefault()
+        $(".interest_msg").html("loading...")
+        let data={
+          
+            interest:$("select[name='interest']").val(),
+            csrfmiddlewaretoken:$("input[name='csrfmiddlewaretoken']").val(),
+            action:"interest",
+           
+
+        }
+        $.ajax({
+            url:"{% url 'update_profile' %}",
+            method:"POST",
+            data:data ,
+            success:function(res){
+                if(res.msg=="interest"){
+                   $(".interest_msg").html("Your Interest Updated successfully")
+                }
+            }
+        })
+     })
+</script>
+
+
+
+<script>
+    $("#changePasswordForm").on("submit",function(e){
+       e.preventDefault()
+       $(".changePassword_msg").html("loading...")
+       let data={
+         
+           old_password:$("input[name='old_password']").val(),
+           new_password:$("input[name='new_password']").val(),
+           confirm_password:$("input[name='confirm_password']").val(),
+           csrfmiddlewaretoken:$("input[name='csrfmiddlewaretoken']").val(),
+           action:"password_change",
+          
+
+       }
+       $.ajax({
+           url:"{% url 'update_profile' %}",
+           method:"POST",
+           data:data ,
+           success:function(res){
+               if(res.msg=="change_password"){
+                //   $(".changePassword_msg").html("Your Interest Updated successfully")
+                if(res.error){
+                    $(".errorPassMsg").html(res.error)
+                    $(".errorPassMsg").css("color","red")
+                }else{
+                    $(".errorPassMsg").html("Password changed succesfully")
+                    $(".errorPassMsg").css("color","green")
+
+                    setTimeout(() => {
+                        window.reload()
+                    }, 2000);
+                }
+            }
+           }
+       })
+    })
+</script>
+
+
+
+
 
 {% endblock %}
